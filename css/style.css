@@ -2,7 +2,9 @@
     border: 1px solid black;
     list-style: none;
 }
-/* img */
+li{
+    list-style: none;
+}
 img{
     width: 100%;
     height: 100%;
@@ -46,6 +48,7 @@ img{
     height: 20%;
 }
 .left-footer{
+    width: 100%;
     height: 70%;
     overflow: auto;
 }
@@ -68,4 +71,25 @@ img{
 .analist{
     min-width: 100px;
     max-height: 100%;
+}
+.left-main-content-top{
+    background-color: #8EDAFC;
+}
+.utent{
+    width: 100%;
+}
+.right-footer{
+    width: 100%;
+}
+.send-message{
+    width: 80%;
+}
+.send{
+    background-color: #D5F9BA;
+}
+.arrivals{
+    background-color: white;
+}
+.active{
+    background-color: lightgray;
 }

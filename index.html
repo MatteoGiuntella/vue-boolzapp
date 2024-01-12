@@ -16,7 +16,7 @@
         <div class="main-container">
           <div class="main-header-bg"></div>
           <div class="footer-header-bg"></div>
-          <div class="container box d-flex">
+          <div class="container p-0 box d-flex">
             <div class="left-box">
               <div class="left-header d-flex justify-content-between align-items-center ">
                 <div class="img-top-left d-flex align-items-center ">
@@ -36,31 +36,61 @@
                 <div class="left-main-content-bottom">
                 </div>
               </div>
-              <div class="left-footer"></div>
+              <div class="left-footer">
+                <div v-for="(elem, index) in contacts" class="utent d-flex" :class="counter == index ? 'active' : '' " @click="(addCounter(index))">
+                  <div class="img-top-left">
+                    <img :src="elem.avatar" class="rounded-circle " alt="">
+                  </div>
+                  <div class="flex-grow-1 p-2">
+                    <p class="name-access">{{elem.name}}</p>
+                    <p class="access">ultimo accesso ore 12:00</p>
+                  </div>
+                  <div>
+                    <span class="access">12:00</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="right-box">
               <div class="right-header d-flex justify-content-between ">
-                <div class="img-top-left d-flex align-items-center m-0">
-                   <img src="img/avatar_1.jpg" class="rounded-circle ">
+                <div class="img-top-left d-flex align-items-center m-0 ">
+                   <img :src="contacts[counter].avatar" class="rounded-circle ">
                    <div class="ms-2 analist">
-                    <span class="name-access">Michele</span>
+                    <span class="name-access">{{contacts[counter].name}}</span>
                     <p class="access">Ultimo accesso ore 24:00</p>
-                </div>
+                   </div>
+                   
                 </div> 
                 <div class="nav-item p-3">
-                  <i class="fa-solid fa-circle-notch fa-lg m-1" style="color: #b0abbf;"></i>
-                  <i class="fa-solid fa-message fa-lg m-1" style="color: #b0abbf;"></i>
+                  <i class="fa-brands fa-squarespace fa-lg m-1" style="color: #b0abbf;"></i>
+                  <i class="fa-solid fa-magnifying-glass fa-lg m-1" style="color: #b0abbf;"></i>
                   <i class="fa-solid fa-bars fa-lg m-1" style="color: #b0abbf;"></i>
                 </div>
               </div>
-              <div class="right-main"></div>
-              <div class="right-footer"></div>
+              <div class="right-main">
+                <div class="container p-5">
+                  <div v-for="(elem,i) in contacts[counter].messages" class="row">
+                    <div :class="elem.status == 'sent' ? 'send col-4 p-3 rounded-4 my-3 offset-8' : 'arrivals col-4 p-3 rounded-4 my-3'">
+                      {{elem.message}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="right-footer d-flex justify-content-around  align-items-center ">
+                  <div><i class="fa-regular fa-face-smile fa-xl" style="color: #b0abbf;"></i></div>
+                  <div class=" send-message">
+                    <div>
+                      <input type="text" class="right-footer" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="scrivi messaggio">
+                    </div>
+                  </div>
+                  <div><i class="fa-solid fa-microphone fa-xl" style="color: #b0abbf;"></i></div></div>
+              </div>
             </div>
           </div>
         </div>
       </main>
     </div>  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js" integrity="sha512-TjBzDQIDnc6pWyeM1bhMnDxtWH0QpOXMcVooglXrali/Tj7W569/wd4E8EDjk1CwOAOPSJon1VfcEt1BI4xIrA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script type="text/javascript" src="javascript/script.js"></script>
 
