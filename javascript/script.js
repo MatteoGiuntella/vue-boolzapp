@@ -19,6 +19,8 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+        backup: [],
+        searchUser: '',
         newMessage : '',
         counter: 0,
         contacts: [
@@ -212,6 +214,19 @@ const { createApp } = Vue
           }, 1000);
         }
         },
+        searchChat(){
+          /*this.contacts = this.contacts.filter(contact =>
+            contact.name.toLowerCase().includes(this.searchUser.toLowerCase()))
+          this.contacts = [...this.backup]*/
+          for(let i=0; i<this.contacts.length; i++){
+            /*if(this.contacts[i].name.toLowerCase().includes(this.searchUser)){
+              this.contacts[i].visible == true;
+            }else{
+              this.contacts[i].visible == false;
+            }*/
+            this.contacts[i].visible = this.contacts[i].name.toLowerCase().includes(this.searchUser);
+          }
+        }
         
     }
   }).mount('#app')
