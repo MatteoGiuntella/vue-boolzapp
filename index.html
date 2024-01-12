@@ -68,7 +68,7 @@
                 </div>
               </div>
               <div class="right-main">
-                <div class="container p-5">
+                <div class="container p-5 ">
                   <div v-for="(elem,i) in contacts[counter].messages" class="row">
                     <div :class="elem.status == 'sent' ? 'send col-4 p-3 rounded-4 my-3 offset-8' : 'arrivals col-4 p-3 rounded-4 my-3'">
                       {{elem.message}}

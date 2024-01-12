@@ -14,8 +14,6 @@
 
 // Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatt
 
-
-
 const { createApp } = Vue
 
   createApp({

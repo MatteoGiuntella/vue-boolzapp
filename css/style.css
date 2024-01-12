@@ -1,7 +1,3 @@
-*{
-    border: 1px solid black;
-    list-style: none;
-}
 li{
     list-style: none;
 }
@@ -92,4 +88,7 @@ img{
 }
 .active{
     background-color: lightgray;
+}
+.right-main{
+    overflow-y: auto;
 }
