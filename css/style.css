@@ -89,6 +89,3 @@ img{
 .active{
     background-color: lightgray;
 }
-.right-main{
-    overflow-y: auto;
-}

@@ -80,7 +80,7 @@
                   <div><i class="fa-regular fa-face-smile fa-xl" style="color: #b0abbf;"></i></div>
                   <div class=" send-message">
                     <div>
-                      <input type="text" class="right-footer" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="scrivi messaggio">
+                      <input @keyup.enter="cpuSend()" v-model="newMessage" type="text" class="right-footer" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="scrivi messaggio">
                     </div>
                   </div>
                   <div><i class="fa-solid fa-microphone fa-xl" style="color: #b0abbf;"></i></div></div>

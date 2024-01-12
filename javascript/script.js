@@ -19,6 +19,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+        newMessage : '',
         counter: 0,
         contacts: [
           {
@@ -191,7 +192,26 @@ const { createApp } = Vue
           console.log('cliccato')
           console.log(i)
           this.counter = i
+        },
+        cpuSend(){
+          if(this.newMessage.trim().length > 0){
+          let myLet = {
+            date: '10/01/2020 15:30:55',
+            message: this.newMessage,
+            status: 'sent'
+          }
+          this.contacts[this.counter].messages.push(myLet)
+          this.newMessage = ''
+          setTimeout(() => {
+            let myRepost = {
+              date: '10/01/2020 15:30:55',
+              message: 'ok',
+              status: 'received'
+            }
+            this.contacts[this.counter].messages.push(myRepost)
+          }, 1000);
         }
         },
-
+        
+    }
   }).mount('#app')
