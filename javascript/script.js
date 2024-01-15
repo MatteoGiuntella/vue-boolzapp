@@ -198,7 +198,7 @@ const { createApp } = Vue
         cpuSend(){
           if(this.newMessage.trim().length > 0){
           let myLet = {
-            date: '10/01/2020 15:30:55',
+            date: this.getCurrentDateTime(),
             message: this.newMessage,
             status: 'sent'
           }
@@ -206,7 +206,7 @@ const { createApp } = Vue
           this.newMessage = ''
           setTimeout(() => {
             let myRepost = {
-              date: '10/01/2020 15:30:55',
+              date: this.getCurrentDateTime(),
               message: 'ok',
               status: 'received'
             }
@@ -226,7 +226,31 @@ const { createApp } = Vue
             }*/
             this.contacts[i].visible = this.contacts[i].name.toLowerCase().includes(this.searchUser);
           }
+        },
+        onlyHour(i){
+           const singleDate = this.contacts[this.counter].messages[i].date
+           const split = singleDate.split(' ')
+           const singleHour = split[1].split(':').slice(0, 2).join(':')
+           return singleHour
+        },
+        getCurrentDateTime() {
+            const oggi = new Date();
+            const giorno = oggi.getDate().toString().padStart(2, '0');
+            const mese = (oggi.getMonth() + 1).toString().padStart(2, '0');
+            const anno = oggi.getFullYear();
+            const ore = oggi.getHours().toString().padStart(2, '0');
+            const minuti = oggi.getMinutes().toString().padStart(2, '0');
+            const secondi = oggi.getSeconds().toString().padStart(2, '0');
+
+            const orarioFinale =`${giorno}/${mese}/${anno} ${ore}:${minuti}:${secondi}`;
+
+            return orarioFinale;
+        },
+        onlyHourContacts(i, messageIndex){
+           const singleDate = this.contacts[i].messages[messageIndex].date
+           const split = singleDate.split(' ')
+           const singleHour = split[1].split(':').slice(0, 2).join(':')
+           return singleHour
         }
-        
     }
   }).mount('#app')
