@@ -50,7 +50,7 @@
                   </div>
                 </div>
               </div>
-              <div class="left-footer">
+              <div class="left-footer overflow-auto ">
                 <div v-for="(elem, index) in contacts">
                 <div v-if="elem.visible === true" class="utent d-flex change-bg" :class="counter == index ? 'active' : '' " @click="(addCounter(index))">
                   <div class="img-top-left mx-1 py-2">
