@@ -59,7 +59,7 @@
               </div>
             </div>
             <div class="right-box">
-              <div class="right-header d-flex justify-content-between ">
+              <div class="right-header d-flex justify-content-between">
                 <div class="img-top-left d-flex align-items-center m-0 ">
                    <img :src="contacts[counter].avatar" class="rounded-circle ">
                    <div class="ms-2 analist">
@@ -74,7 +74,7 @@
                   <i class="fa-solid fa-bars fa-lg m-1" style="color: #b0abbf;"></i>
                 </div>
               </div>
-              <div class="right-main">
+              <div class="right-main overflow-auto ">
                 <div class="container p-5 ">
                   <div v-for="(elem,i) in contacts[counter].messages" class="row">
                     <div :class="elem.status == 'sent' ? 'send col-4 p-3 rounded-4 my-3 offset-8' : 'arrivals col-4 p-3 rounded-4 my-3'">
@@ -83,7 +83,7 @@
                   </div>
                 </div>
               </div>
-              <div class="right-footer d-flex justify-content-around  align-items-center ">
+              <div class="right-footer d-flex justify-content-around  align-items-center">
                   <div><i class="fa-regular fa-face-smile fa-xl" style="color: #b0abbf;"></i></div>
                   <div class=" send-message">
                     <div>
