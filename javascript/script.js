@@ -64,7 +64,8 @@ const { createApp } = Vue
                   {
                       date: '20/03/2020 16:35:00',
                       message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                      status: 'sent'
+                      status: 'sent',
+                      dropdown: false
                   }
               ],
           },
@@ -257,12 +258,18 @@ const { createApp } = Vue
             for (let i = 0; i < this.contacts[this.counter].messages.length; i++) {   
                 this.backup.push(false)
             }
-            this.backup[index] = true
-            console.log(this.backup)
+            this.backup[index] = !this.backup[index];
+            console.log('this.backup: ', this.backup)
         },
         deleteMess(controll){
+
+            if(!this.contacts[this.counter].messages.length > 0) {
+                return;
+            }
            
-            this.contacts[this.counter].messages.splice(controll, 1) 
+            this.contacts[this.counter].messages.splice(controll, 1)
+            
+            console.log('messages: ', this.contacts[this.counter])
         //     for (let i = 0; i < this.backup.length; i++) {
         //         if (this.backup[i] == true) {
         //             this.backup[i] = false

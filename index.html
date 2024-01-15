@@ -58,12 +58,12 @@
                   </div>
                   <div class="flex-grow-1 p-2">
                     <p class="name-access">{{elem.name}}</p>
-                    <p class="">
+                    <p class="" v-if="elem.messages.length > 0">
                       {{elem.messages[elem.messages.length-1].message}}
                     </p>
                   </div>
                   <div>
-                    <span class="access pe-2">
+                    <span class="access pe-2"  v-if="elem.messages.length > 0">
                       {{onlyHourContacts(index, elem.messages.length-1)}}
                     </span>
                   </div>
@@ -90,20 +90,24 @@
               </div>
               <div class="right-main overflow-auto ">
                 <div class="container p-5">
-                  <div v-for="(elem,i) in contacts[counter].messages" class="row">
-                    <div @click="eventDropDown(i)" :class="elem.status == 'sent' ? 'send col-4 p-3 rounded-4 my-3 offset-8 main-container' : 'arrivals col-4 p-3 rounded-4 my-3 main-container'">
-                      {{elem.message}}
-                      <div v-if="backup[i] == true">
-                        <ul>
-                          <li @click="deleteMess(i)">delete</li>
-                          <li>info</li>
-                        </ul>
-                      </div>
-                      <div class="access d-flex  justify-content-end ">
-                        {{onlyHour(i)}}
+                  <div v-if="contacts[counter].messages.length > 0">
+                    <div v-for="(elem,i) in contacts[counter].messages" class="row">
+                      <div @click="eventDropDown(i)" :class="elem.status == 'sent' ? 'send col-4 p-3 rounded-4 my-3 offset-8 main-container' : 'arrivals col-4 p-3 rounded-4 my-3 main-container'">
+                        {{elem.message}}
+                        <div v-if="backup[i] == true" class="drop rounded-1 ">
+                            <div @click="deleteMess(i)">- x</div>
+                            <div>- info</div>
+                        </div>
+                        <div class="access d-flex  justify-content-end ">
+                          {{onlyHour(i)}}
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <div v-else>
+                    No Messages
+                  </div>
+                  
                 </div>
               </div>
               <div class="right-footer d-flex justify-content-around  align-items-center">

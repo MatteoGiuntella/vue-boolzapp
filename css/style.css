@@ -11,6 +11,13 @@ img{
 
 
 /* box e container size */
+.drop{
+    border: 1px solid black;
+    position: absolute;
+    bottom: -50%;
+    right: -10%;
+    background-color: white;
+}
 .img-top-left{
     width: 15%;
     height: 100%;
