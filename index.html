@@ -91,13 +91,18 @@
               <div class="right-main overflow-auto ">
                 <div class="container p-5">
                   <div v-for="(elem,i) in contacts[counter].messages" class="row">
-                    <div :class="elem.status == 'sent' ? 'send col-4 p-3 rounded-4 my-3 offset-8' : 'arrivals col-4 p-3 rounded-4 my-3'">
+                    <div @click="eventDropDown(i)" :class="elem.status == 'sent' ? 'send col-4 p-3 rounded-4 my-3 offset-8 main-container' : 'arrivals col-4 p-3 rounded-4 my-3 main-container'">
                       {{elem.message}}
+                      <div v-if="backup[i] == true">
+                        <ul>
+                          <li @click="deleteMess(i)">delete</li>
+                          <li>info</li>
+                        </ul>
+                      </div>
                       <div class="access d-flex  justify-content-end ">
                         {{onlyHour(i)}}
                       </div>
                     </div>
-                    
                   </div>
                 </div>
               </div>

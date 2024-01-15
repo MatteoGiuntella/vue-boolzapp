@@ -251,6 +251,24 @@ const { createApp } = Vue
            const split = singleDate.split(' ')
            const singleHour = split[1].split(':').slice(0, 2).join(':')
            return singleHour
+        },
+        eventDropDown(index){
+            this.backup = []
+            for (let i = 0; i < this.contacts[this.counter].messages.length; i++) {   
+                this.backup.push(false)
+            }
+            this.backup[index] = true
+            console.log(this.backup)
+        },
+        deleteMess(controll){
+           
+            this.contacts[this.counter].messages.splice(controll, 1) 
+        //     for (let i = 0; i < this.backup.length; i++) {
+        //         if (this.backup[i] == true) {
+        //             this.backup[i] = false
+        //         }
+            
+        // }         
         }
     }
   }).mount('#app')
