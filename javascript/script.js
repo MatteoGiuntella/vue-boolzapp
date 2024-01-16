@@ -225,7 +225,7 @@ const { createApp } = Vue
             }else{
               this.contacts[i].visible == false;
             }*/
-            this.contacts[i].visible = this.contacts[i].name.toLowerCase().includes(this.searchUser);
+            this.contacts[i].visible = this.contacts[i].name.toLowerCase().includes(this.searchUser.toLowerCase());
           }
         },
         onlyHour(i){
